@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <header>
+      <h1>Splitter</h1>
+      <img src="./images/logo.svg" alt="splitter" />
+    </header>
+    <main>
+      <form id="splitter">
+        <section id="tip-form">
+          <div class="form-group">
+            <div class="form-group-header">
+              <label for="bill">Bill</label>
+              <span data-id="bill-field" class="error-msg"
+                >can&apos;t be empty</span
+              >
+            </div>
+            <input
+              class="form-control"
+              type="number"
+              name="bill-field"
+              id="bill-field"
+              placeholder="0"
+            />
+          </div>
+          <div class="percentage">
+            <p class="form-group-header">Select Tip %</p>
+            <ul class="tip-percentage-wrap">
+              <li>
+                <button type="button" class="btn" data-value="5">5%</button>
+              </li>
+              <li>
+                <button type="button" class="btn" data-value="10">10%</button>
+              </li>
+              <li>
+                <button type="button" class="btn" data-value="15">15%</button>
+              </li>
+              <li>
+                <button type="button" class="btn" data-value="25">25%</button>
+              </li>
+              <li>
+                <button type="button" class="btn" data-value="50">50%</button>
+              </li>
+              <li aria-label="custom tip percentage">
+                <input
+                  type="number"
+                  name="custom-field"
+                  id="custom-field"
+                  class="form-control"
+                  placeholder="Custom"
+                />
+              </li>
+            </ul>
+          </div>
+          <div class="form-group">
+            <div class="form-group-header">
+              <label for="billers">Number of People</label>
+              <span data-id="billers" class="error-msg"
+                >can&apos;t be zero</span
+              >
+            </div>
+            <input
+              class="form-control"
+              type="number"
+              name="biller-field"
+              id="billers"
+              placeholder="0"
+            />
+          </div>
+        </section>
+        <section id="tip">
+          <ul class="tip-stats">
+            <li class="tip-stat">
+              <p>
+                Tip Amount <br />
+                <span class="faded">/ person</span>
+              </p>
+              <h2 id="tip-per-person" class="tip-stat-header">&dollar;0.00</h2>
+            </li>
+            <li class="tip-stat">
+              <p>
+                Total <br />
+                <span class="faded">/ person</span>
+              </p>
+              <h2 id="total-tip" class="tip-stat-header">&dollar;0.00</h2>
+            </li>
+          </ul>
+          <button id="reset-btn" class="btn btn-full disabled" type="reset">
+            Reset
+          </button>
+        </section>
+      </form>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

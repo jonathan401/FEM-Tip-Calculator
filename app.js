@@ -19,41 +19,33 @@ const resetValues = () => {
   return;
 };
 
-const getSingleTip = (tip, percentage, totalPersons) => {
+const getTips = (tip, percentage, totalPersons) => {
   let tipPercent = percentage / 100;
   let customValue = customField.value / 100;
-  let result = (
+
+  let tipPerPerson = (
     (tip * (customValue ? customValue : tipPercent)) /
     totalPersons
   ).toFixed(2);
-  return result;
-};
-
-const getTotalTips = (tip, percentage, totalPersons) => {
-  let tipPercent = percentage / 100;
-  let customValue = customField.value / 100;
-  let result = (
-    (tip * (customValue ? customValue : tipPercent + 1)) /
+  let totalPerPerson = (
+    (tip * (customValue ? customValue + 1 : tipPercent + 1)) /
     totalPersons
   ).toFixed(2);
-  return result;
+
+  return { tipPerPerson, totalPerPerson };
 };
 
 const getResults = (btnId = 0) => {
   customValue = customField.value;
-  let tipValue = getSingleTip(
-    billField.value,
-    customValue ? customValue : btnId,
-    billers.value
-  );
-  let totalPersonsValue = getTotalTips(
+
+  const { tipPerPerson, totalPerPerson } = getTips(
     billField.value,
     customValue ? customValue : btnId,
     billers.value
   );
 
-  tip.textContent = `$${tipValue}`;
-  totalTips.textContent = `$${totalPersonsValue}`;
+  tip.textContent = `$${tipPerPerson}`;
+  totalTips.textContent = `$${totalPerPerson}`;
 };
 
 const isValidated = () => {
@@ -78,7 +70,7 @@ const queryBtns = (e) => {
   btn.classList.add("active");
   customField.value = "";
 
-  !isValidated() ? getResults(btnId) : "";
+  !isValidated() ? getResults(btnId) : resetValues();
 };
 
 const validate = (e) => {

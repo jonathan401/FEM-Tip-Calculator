@@ -96,7 +96,7 @@ const validate = (e) => {
 btnContainer.addEventListener("click", queryBtns);
 
 // forms
-[billField, billers].forEach((formControl) => {
+[billField, billers, customField].forEach((formControl) => {
   formControl.addEventListener("keyup", validate);
 });
 

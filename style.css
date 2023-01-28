@@ -37,7 +37,7 @@ body {
 }
 
 header {
-  margin: 1.5rem 2rem;
+  margin: 3rem 2rem;
 }
 
 img {
@@ -79,7 +79,7 @@ input[type="number"] {
   padding: 0.5rem 0.2rem;
   font-family: inherit;
   border-radius: var(--border-sm);
-  font-size: 1rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   cursor: pointer;
   color: var(--white);
   font-weight: 700;
@@ -109,21 +109,26 @@ input[type="number"] {
   height: 100%;
 }
 
+#custom-field::placeholder {
+  color: var(--text-gray);
+}
+
 /* form group styles */
 
 .form-group {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1clamp (1.2rem, 2.5vw, 1.5rem);
 }
 
 .form-group > input {
   width: 100%;
 }
 
-.form-group > label {
-  margin-bottom: 0.3rem;
+.form-group label {
+  cursor: pointer;
+  margin-bottom: 0.1rem;
 }
 
-.form-group > label,
+.form-group label,
 .form-group-header {
   display: block;
   color: var(--text-gray);
@@ -280,7 +285,7 @@ input[type="number"] {
     flex-direction: row;
     max-width: none;
     width: 60%;
-    margin: 0 auto;
+    margin: 1.5rem auto;
   }
 
   #tip-form,

@@ -13,6 +13,12 @@ const formControls = document.querySelectorAll(".form-control");
 const pattern = /^[0-9]+(\.[0-9]+)?$/i;
 
 // helper functions
+const resetValues = () => {
+  tip.textContent = "$0.00";
+  totalTips.textContent = "$0.00";
+  return;
+};
+
 const getSingleTip = (tip, percentage, totalPersons) => {
   let tipPercent = percentage / 100;
   let customValue = customField.value / 100;
@@ -103,7 +109,7 @@ btnContainer.addEventListener("click", queryBtns);
 });
 
 // custom field
-customField.addEventListener("keyup", (e) => {
+customField.addEventListener("keyup", () => {
   if (
     !billField.classList.contains("error") &&
     !billers.classList.contains("error")
@@ -113,7 +119,9 @@ customField.addEventListener("keyup", (e) => {
 });
 
 [billers, billField, customField].forEach((f) => {
-  addEventListener("input", (e) => {
+  addEventListener("input", () => {
     resetBtn.classList.remove("disabled");
   });
 });
+
+resetBtn.addEventListener("click", resetValues);
